@@ -1,0 +1,16 @@
+langchain
+openai
+tiktoken
+langchain_experimental
+langchain[docarray]
+pylcs
+pypdf
+langchain-groq
+python-dotenv
+ragas
+pyPDF2
+faiss-cpu
+langgraph
+langchainhub
+streamlit 
+pyvis
