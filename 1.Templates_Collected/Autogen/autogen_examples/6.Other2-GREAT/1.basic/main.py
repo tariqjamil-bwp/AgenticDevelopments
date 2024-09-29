@@ -2,18 +2,21 @@ import os
 import autogen
 import argparse
 
-from .agent_user import get_user
-from .agent_summarizer import get_note_summarizer
-from .agent_title_gen import get_title_generator
-from .group_chat import get_group_chat
+from agent_user import get_user
+from agent_summarizer import get_note_summarizer
+from agent_title_gen import get_title_generator
+from group_chat import get_group_chat
 
+config_list = [
+    {"api_type": "groq", "model": "llama-3.1-70b-versatile", "api_key": os.environ.get("GROQ_API_KEY")},
+    ]
 
 def main():
     # Create an ArgumentParser object
     parser = argparse.ArgumentParser(description="Work with your notes.")
 
     # Add all server arguments
-    parser.add_argument("-f", "--file", default="./note.md", type=str, help="The file you want to load.")
+    parser.add_argument("-f", "--file", default="1.Templates_Collected/Autogen/autogen_others/basic/notes.md", type=str, help="The file you want to load.")
     parser.add_argument("-g", "--generate-title", default=False, action='store_true', help="Enable title generation.")
 
     # Parse the arguments
@@ -25,13 +28,7 @@ def main():
 
     # build the gpt_configuration object
     base_llm_config = {
-        "config_list": [
-            {
-                "model": "Llama-3-8B-Instruct",
-                "api_key": os.getenv("OPENAI_API_KEY"),
-                "base_url": os.getenv("OPENAI_API_URL"),
-            }
-        ],
+        "config_list": config_list,
         "temperature": 0.0,
         "cache_seed": None,
         "timeout": 600,
