@@ -55,7 +55,8 @@ def currency_converter(amount, source_curr, target_curr):
     conv = data["rates"][target_curr] * amount
 
     print('-> TOOL-CURRENCY_CONVERTER CALLED')
-    return f'{amount:.2f} {source_curr} is equivalent to: {conv:.2f} {target_curr}'
+    return conv
+    #return f'{amount:.2f} {source_curr} is equivalent to: {conv:.2f} {target_curr}'
 ####################################################################################################################
 if __name__ == "__main__":
         
