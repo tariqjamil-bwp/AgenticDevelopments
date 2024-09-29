@@ -17,7 +17,7 @@ The output must obey the following "RULES":
 - Output empty tasks array if no tasks were found.
 - Identify and correct spelling & grammatical mistakes.
 - Identify and fix any errors in the YAML object.
-- Output should strictly be in YAML with no ``` or any additional text."""
+- Output should strictly be in YAML with no ''' or any additional text."""
 
     # Create and return our assistant agent
     return autogen.AssistantAgent(
