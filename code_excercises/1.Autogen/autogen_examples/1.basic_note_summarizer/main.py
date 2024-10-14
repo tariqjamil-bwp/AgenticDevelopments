@@ -16,7 +16,7 @@ def main():
     parser = argparse.ArgumentParser(description="Work with your notes.")
 
     # Add all server arguments
-    parser.add_argument("-f", "--file", default="1.Templates_Collected/Autogen/autogen_examples/6.Other2-GREAT/1.basic/notes.md", type=str, help="The file you want to load.")
+    parser.add_argument("-f", "--file", default="code_excercises/1.Autogen/autogen_examples/1.basic_note_summarizer/notes.md", type=str, help="The file you want to load.")
     parser.add_argument("-g", "--generate-title", default=False, action='store_true', help="Enable title generation.")
 
     # Parse the arguments
