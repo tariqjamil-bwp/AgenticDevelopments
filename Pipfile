@@ -32,6 +32,7 @@ pyautogen = {extras = ["retrievechat-qdrant"] }
 flaml = {extras = ["automl"] }
 seaborn = "*"
 google-auth-oauthlib = "*"
+langgraph = "*"
 
 [dev-packages]
 ipykernel = "*"
