@@ -1,7 +1,7 @@
 import os
 from langchain_groq import ChatGroq
 class GroqChatLLM(ChatGroq):
-    def __init__(self, temperature=0, model_name="llama3-groq-70b-8192-tool-use-preview", api_key=None):
+    def __init__(self, temperature=0, model_name="llama-3.2-90b-text-preview", api_key=None):
         api_key = api_key or os.environ.get("GROQ_API_KEY")
         
         if not api_key:
