@@ -1,0 +1,13 @@
+python-decouple
+openai
+langchain
+langchain-openai
+langchain-groq
+langchain-ollama
+pydantic
+pathlib
+colorama
+langchain-core
+langgraph
+pdfkit
+markdown

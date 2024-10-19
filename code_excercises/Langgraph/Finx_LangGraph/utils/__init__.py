@@ -1,3 +1,3 @@
-from .aisModels_lc import GroqChatLLM
-from .aisModels_lc import OllamaLLM
+from .Models_lc import GroqChatLLM
+from .Models_lc import OllamaLLM
 __all__ = ["GroqChatLLM", "OllamaLLM"]
