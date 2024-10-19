@@ -7,18 +7,21 @@ from langchain.agents import create_openai_functions_agent
 from langchain_core.agents import AgentAction, AgentActionMessageLog, AgentFinish
 from langchain_core.messages import BaseMessage
 from langchain_core.runnables.base import Runnable
-from langchain_openai.chat_models import ChatOpenAI
+#from langchain_openai.chat_models import ChatOpenAI
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt.tool_executor import ToolExecutor
 
 from setup_environment import set_environment_variables
 from tools import generate_image, get_weather
-from utils import GroqChatLLM
+#from utils import GroqChatLLM
+from langchain_groq import ChatGroq
+import os
 
 set_environment_variables("LangGraph Basics")
 
 #LLM = ChatOpenAI(model="gpt-3.5-turbo-0125", streaming=True)
-LLM = GroqChatLLM()
+LLM = ChatGroq(model_name='llama-3.1-70b-versatile', api_key=os.environ.get("GROQ_API_KEY"))
+
 TOOLS = [get_weather, generate_image]
 PROMPT = hub.pull("hwchase17/openai-functions-agent")
 
