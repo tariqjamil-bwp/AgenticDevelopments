@@ -19,7 +19,7 @@ def main():
     parser = argparse.ArgumentParser(description="Work with your notes.")
 
     # Add all server arguments
-    parser.add_argument("-f", "--file", default="code_excercises/1.Autogen/autogen_examples/2.advanced_task_creater/notes.md", type=str, help="The file you want to load.")
+    parser.add_argument("-f", "--file", default="code_excercises/Autogen/autogen_examples/2.advanced_task_creater/notes.md", type=str, help="The file you want to load.")
 
     # Parse the arguments
     args = parser.parse_args()

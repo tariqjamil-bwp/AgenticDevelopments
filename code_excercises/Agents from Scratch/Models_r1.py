@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 x = load_dotenv()
 from groq import Groq
 class GroqLLM:
-    def __init__(self, api_key="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", model="llama3-70b-8192"):
+    def __init__(self, api_key=os.environ.get('GROQ_API_KEY'), model="llama-3.2-90b-text-preview"):
         """
         Initialize the LLM with a Groq client and a model name.
         

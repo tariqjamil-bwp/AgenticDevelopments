@@ -1,9 +1,9 @@
 
 import requests
 from bs4 import BeautifulSoup
-from dotenv import load_dotenv
-x = load_dotenv()
-print("Environment variables loaded successfully") if x else print("Error: Failed to load environment variables.")
+#from dotenv import load_dotenv
+#x = load_dotenv()
+#print("Environment variables loaded successfully") if x else print("Error: Failed to load environment variables.")
 ###################################################################################################################
 def calculate(expression: str) -> float:
     """
@@ -19,44 +19,34 @@ def calculate(expression: str) -> float:
         return float('nan')
 ###################################################################################################################
 import requests
-def currency_converter(amount:str, from_currency: str, to_currency: str) -> str:
+from typing import Any
+
+def currency_converter(amount:Any, source_curr:str="USD", target_curr:str="GBP"):
     """
-    Convert an amount from one currency to another using real-time exchange rates.
-    :param amount: The amount to convert in the source currency.
-    :param from_currency: The currency to convert from.
-    :param to_currency: The currency to convert to.
-    :return: A string with the converted amount or an error message.
+    Converts an amount from a source currency to a target currency.
+    :param amount: The amount in the source currency.
+    :param source_curr: The source currency code (e.g., 'USD').
+    :param target_curr: The target currency code (e.g., 'EUR').
+    :return: A formatted string with the converted amount.
+    '''Example: currency_converter(100, 'USD', 'EUR')
+    '100.00 USD is equivalent to: 80.00 EUR' '''
     """
-    try:
-        #api_key = os.environ.get('EXCHRATE_API_KEY')
-        api_key = "a71dffbb1968f78f3cf3e22f"  # will expire on 11th Oct 2024
-        # after expiry we can have free offer api key which have artes updates once per day.
-        
-        if not api_key:
-            return "Error: API key not found. Set 'EXCHRATE_API_KEY' in environment variables."
-        
-        amount = float(amount)  # Convert amount to float
-
-        # API URL with from_currency and to_currency
-        url = f"https://v6.exchangerate-api.com/v6/{api_key}/pair/{from_currency}/{to_currency}"
-        response = requests.get(url)
-        response.raise_for_status()  # Raise exception for HTTP errors
-        data = response.json()
-
-        # Check for a successful response
-        if data.get("result") != "success":
-            return f"Error: Failed to retrieve exchange rate. {data.get('error-type', 'Unknown error')}"
-
-        # Access the conversion rate
-        rate = data['conversion_rate']
-        converted = amount * rate
-        
-        return f"{converted:.2f}"
+    # A free API for currency conversion
+    url = f"https://api.exchangerate-api.com/v4/latest/{source_curr}"
     
-    except ValueError:
-        return "Error: Invalid amount. Please provide a numeric value."
-    except requests.RequestException as e:
-        return f"Error fetching exchange rates: {str(e)}"
+    response = requests.get(url)
+    data = response.json()
+    
+    # Checking if the target currency is available
+    if target_curr not in data["rates"]:
+        return f"Error: Target currency '{target_curr}' not available in the exchange rates."
+    amount = float(amount)
+    # Calculating the conversion
+    conv = data["rates"][target_curr] * amount
+
+    print('-> TOOL-CURRENCY_CONVERTER CALLED')
+    return conv
+    #return f'{amount:.2f} {source_curr} is equivalent to: {conv:.2f} {target_curr}'
 ####################################################################################################################
 import json
 from duckduckgo_search import DDGS
