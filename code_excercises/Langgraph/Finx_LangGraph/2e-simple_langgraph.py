@@ -10,6 +10,7 @@ from langchain_core.runnables.base import Runnable
 #from langchain_openai.chat_models import ChatOpenAI
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt.tool_executor import ToolExecutor
+from langgraph.prebuilt import ToolNode
 
 from setup_environment import set_environment_variables
 from tools import generate_image, get_weather
@@ -42,7 +43,7 @@ def agent_node(input: AgentState):
     agent_outcome: AgentActionMessageLog = runnable_agent.invoke(input)
     return {"agent_outcome": agent_outcome}
 
-tool_executor = ToolExecutor(TOOLS)
+tool_executor = ToolNode(TOOLS)
 
 def tool_executor_node(input: AgentState):
     agent_action = input["agent_outcome"]
@@ -86,8 +87,8 @@ def call_weather_app(query: str):
     return result
 
 
-# call_weather_app("What is the weather in New York?")
+call_weather_app("What is the weather in New York?")
 
-call_weather_app(
-    "Give me a visual image displaying the current weather in Seoul, South Korea."
-)
+#call_weather_app(
+#    "Give me a visual image displaying the current weather in Seoul, South Korea."
+#)
