@@ -16,7 +16,7 @@ class GroqChatLLM(ChatGroq):
 ######################################################################################################################
 from langchain_ollama import ChatOllama
 class OllamaLLM(ChatOllama):
-    def __init__(self, temperature=0, model_name="llama3.1"):
+    def __init__(self, temperature=0, model_name="gemma2:2b"):
         # Directly call the superclass (ChatOllama) initialization with the fixed base URL
         super().__init__(
             temperature=temperature,
