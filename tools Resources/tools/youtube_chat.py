@@ -1,3 +1,9 @@
+#- **Tutorial Title:** Build Your Own Auto-GPT Apps with LangChain (Python Tutorial)
+#- **Tutorial Author:** Dave Ebbelaar
+#- **Tutorial Link:** [Link to Tutorial Video](https://www.youtube.com/watch?v=NYSWn1ipbgg)
+#- **Tutorial GitHub Link:** [Link to GitHub Tutorial](https://github.com/daveebbelaar/langchain-experiments/tree/main/youtube)
+
+
 from langchain.document_loaders import YoutubeLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings

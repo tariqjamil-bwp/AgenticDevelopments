@@ -1,5 +1,0 @@
-- **Tutorial Title:** Build Your Own Auto-GPT Apps with LangChain (Python Tutorial)
-- **Tutorial Author:** Dave Ebbelaar
-- **Tutorial Link:** [Link to Tutorial Video](https://www.youtube.com/watch?v=NYSWn1ipbgg)
-- **Tutorial GitHub Link:** [Link to GitHub Tutorial](https://github.com/daveebbelaar/langchain-experiments/tree/main/youtube)
-- **Thanks/Acknowledgments:** Thanks to Dave Ebbelaar for creating this tutorial and for his work on bringing knowledge about this Package to the public. I learned a lot from this tutorial and I look forward to using LangChain in future projects.

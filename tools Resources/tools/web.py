@@ -44,6 +44,15 @@ async def research(research_urls: list[str]) -> str:
     contents = await asyncio.gather(*tasks, return_exceptions=True)
     return json.dumps(contents, default=vars)
 
+@tool
+def time(text: str) -> str:
+    """Returns todays date, use this for any \
+    questions related to knowing todays date. \
+    The input should always be an empty string, \
+    and this function will always return todays \
+    date - any date mathmatics should occur \
+    outside this function."""
+    return str(date.today())
 
 if __name__ == "__main__":
     import time
