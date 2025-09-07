@@ -1,0 +1,6 @@
+streamlit
+openai
+pandas
+groq
+pydantic
+pyyaml
