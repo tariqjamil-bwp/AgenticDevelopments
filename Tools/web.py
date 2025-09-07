@@ -4,7 +4,6 @@ import sys
 
 import aiohttp
 from bs4 import BeautifulSoup
-from langchain.tools import tool
 from pydantic import BaseModel, Field
 
 
@@ -37,14 +36,12 @@ class ResearchInput(BaseModel):
     research_urls: list[str] = Field(description="Must be a list of valid URLs.")
 
 
-@tool("research", args_schema=ResearchInput)
 async def research(research_urls: list[str]) -> str:
     """Get content of provided URLs for research purposes."""
     tasks = [asyncio.create_task(get_webpage_content(url)) for url in research_urls]
     contents = await asyncio.gather(*tasks, return_exceptions=True)
     return json.dumps(contents, default=vars)
 
-@tool
 def time(text: str) -> str:
     """Returns todays date, use this for any \
     questions related to knowing todays date. \
@@ -64,7 +61,7 @@ if __name__ == "__main__":
     ]
 
     async def main():
-        result = await research.ainvoke({"research_urls": TEST_URLS})
+        result = await research(TEST_URLS)
 
         with open("test.json", "w") as f:
             json.dump(result, f)

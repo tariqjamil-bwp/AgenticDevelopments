@@ -3,7 +3,6 @@ from pathlib import Path
 
 import requests
 from decouple import config
-from langchain.tools import tool
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
@@ -31,7 +30,6 @@ class GenerateImageInput(BaseModel):
     )
 
 
-@tool("generate_image", args_schema=GenerateImageInput)
 def generate_image(image_description: str) -> str:
     """Generate an image based on a detailed description."""
     return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS0VxLDVc_GuTberhKAFfr-QFoXJqcv7-Njg&s"
