@@ -1,0 +1,6 @@
+streamlit
+agno
+python-dotenv
+openai
+lancedb
+inquirer
