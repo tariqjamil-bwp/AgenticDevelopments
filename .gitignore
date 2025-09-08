@@ -162,4 +162,4 @@ cython_debug/
 #.idea/
 phi/
 .chainlit/
-.mp4
+.mp4*.mp4
