@@ -1,6 +1,6 @@
 agno
 openai
 firecrawl-py==1.9.0
-gradio==5.9.1
+gradio==5.31.0
 pydantic
 dataclasses
