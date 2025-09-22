@@ -1,0 +1,10 @@
+# Required Python packages for the Academic Research Assistant Agent
+
+google-adk
+requests
+beautifulsoup4
+selenium
+Pillow
+python-dotenv 
+scrapy
+google-search-results  # SerpAPI client for fallback search mechanism
