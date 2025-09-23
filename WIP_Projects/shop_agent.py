@@ -28,6 +28,8 @@ from google.genai import types
 if os.getenv("GOOGLE_API_KEY") and os.getenv("GEMINI_API_KEY"):
     del os.environ["GEMINI_API_KEY"]
 
+os.environ["GOOGLE_API_KEY"] = "AIzaSyClztgaJXHghUkQlDoweCo9uiDOZke08fQ"
+
 # Configure logging
 logging.getLogger("google.adk.runners").setLevel(logging.ERROR)
 logging.getLogger("google_genai.types").setLevel(logging.ERROR)
