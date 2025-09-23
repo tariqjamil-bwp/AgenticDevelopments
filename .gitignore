@@ -1,0 +1,8 @@
+.env
+__pycache__/
+.venv/
+*.db
+.mypy_cache/
+.conda/
+*.tmp
+
