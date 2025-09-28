@@ -19,11 +19,7 @@ from exa_py import Exa
 from tavily import TavilyClient
 from linkup import LinkupClient
 
-nebius_model = LiteLlm(
-    model="nebius/Qwen/Qwen3-235B-A22B",
-    api_base=os.getenv("NEBIUS_API_BASE"),
-    api_key=os.getenv("NEBIUS_API_KEY")
-)
+model = LiteLlm(model="google/gemini-1.5-flash")
 # --- Tool Definitions (Adapted to accept a dynamic topic) ---
 
 def exa_search_ai(topic: str) -> dict:
@@ -78,34 +74,26 @@ def run_adk_research(topic: str) -> str:
     Runs the full ADK pipeline for a given topic and returns the final analysis.
     """
     # Define models (replace with your actual model initialization)
-    nebius_base_model = LiteLlm(
-        model="nebius/Qwen/Qwen3-235B-A22B",
-        api_base=os.getenv("NEBIUS_API_BASE"),
-        api_key=os.getenv("NEBIUS_API_KEY")
-    )
-    analysis_llm = LiteLlm(
-        model="nebius/Qwen/Qwen3-235B-A22B", # Using a powerful model for final analysis
-        api_base=os.getenv("NEBIUS_API_BASE"),
-        api_key=os.getenv("NEBIUS_API_KEY")
-    )
+    base_model = LiteLlm(model="google/gemini-1.5-flash")
+    analysis_llm = LiteLlm(model="google/gemini-2.5-flash")
 
     # --- Agent Definitions (with dynamic instructions) ---
     # These agents perform the research in parallel.
 
     exa_agent = LlmAgent(
-        name="ExaAgent", model=nebius_base_model,
+        name="ExaAgent", model=base_model,
         instruction=f"Use the exa_search_ai tool to fetch the latest news and developments about '{topic}'.",
         tools=[exa_search_ai], output_key="exa_results"
     )
 
     tavily_agent = LlmAgent(
-        name="TavilyAgent", model=nebius_base_model,
+        name="TavilyAgent", model=base_model,
         instruction=f"Use the tavily_search_ai_analysis tool to understand community sentiment about '{topic}' from X.com and Reddit.",
         tools=[tavily_search_ai_analysis], output_key="tavily_results"
     )
 
     linkup_agent = LlmAgent(
-        name="LinkupAgent", model=nebius_base_model,
+        name="LinkupAgent", model=base_model,
         instruction=f"Use the linkup_search_ai tool to find technical deep-dives and code for '{topic}' from YCombinator and Github.",
         tools=[linkup_search_ai], output_key="linkup_results"
     )
@@ -122,7 +110,7 @@ def run_adk_research(topic: str) -> str:
 
       # This agent synthesizes the parallel search results.
     summary_agent = LlmAgent(
-        name="SummaryAgent", model=nebius_base_model,
+        name="SummaryAgent", model=base_model,
         instruction="""You are a meticulous research summarizer. Combine the information from 'exa_results' into a single, coherent summary. Focus on the latest trends, 
         key talking points, important code repositories, and any emerging technologies related to the topic.
         Use markdown for clear formatting.""",

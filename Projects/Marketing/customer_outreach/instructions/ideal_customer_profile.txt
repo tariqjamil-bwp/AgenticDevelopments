@@ -1,0 +1,10 @@
+
+Ideal Customer Profile:
+- Company Size: 50-5000 employees
+- Industry: Technology, Education, Healthcare, Financial Services
+- Revenue: $10M-$1B annual revenue
+- Technology Focus: AI/ML adoption, Digital transformation
+- Pain Points: Data analytics, Process automation, Training needs
+- Decision Makers: CTO, CEO, VP Engineering, Head of Data
+- Buying Signals: Recent funding, team expansion, new product launches
+- Geographic: North America, Europe, Asia-Pacific (English-speaking markets)
