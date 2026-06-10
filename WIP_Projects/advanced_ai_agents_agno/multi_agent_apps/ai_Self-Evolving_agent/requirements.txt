@@ -37,8 +37,8 @@ textgrad>=0.1.8
 
 # fast api dependencies
 fastapi>=0.115.11
-motor>=3.7
-0uvicorn>=0.34.0
+motor>=3.7.0
+uvicorn>=0.34.0
 sqlalchemy>=2.0.38
 python-jose>=3.3.0
 passlib>=1.7.4
