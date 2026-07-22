@@ -1,4 +1,4 @@
-agno==1.2.8
+agno==2.3.24
 streamlit==1.44.1
 openai
 Requests
