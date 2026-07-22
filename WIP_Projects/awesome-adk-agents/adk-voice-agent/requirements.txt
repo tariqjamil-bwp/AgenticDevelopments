@@ -53,7 +53,7 @@ opentelemetry-sdk==1.33.0
 opentelemetry-semantic-conventions==0.54b0
 packaging==25.0
 proto-plus==1.26.1
-protobuf==5.29.4
+protobuf==5.29.6
 pyasn1==0.6.2
 pyasn1_modules==0.4.2
 pycparser==2.22

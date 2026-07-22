@@ -96,6 +96,7 @@ jsonschema-specifications==2025.4.1
 kokoro==0.9.4
 fombu==5.5.3
 langchain==0.3.22
+langchain-core==0.3.80
 langchain-anthropic==0.3.3
 langchain-aws==0.2.19
 langchain-deepseek==0.1.3
@@ -139,7 +140,7 @@ orjson==3.10.16
 packaging==24.2
 pandas==2.2.3
 phonemizer-fork==3.3.2
-pillow==11.3.0
+pillow==12.3.0
 pip-chill==1.0.3
 playwright==1.52.0
 pluggy==1.6.0
@@ -151,7 +152,7 @@ primp==0.15.0
 prometheus_client==0.22.0
 propcache==0.3.1
 proto-plus==1.26.1
-protobuf==6.31.1
+protobuf==6.33.5
 psycopg2-binary==2.9.10
 pyasn1==0.6.1
 pyasn1_modules==0.4.2
