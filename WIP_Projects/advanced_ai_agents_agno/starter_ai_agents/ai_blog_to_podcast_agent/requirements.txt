@@ -1,5 +1,5 @@
 agno==2.3.24
-streamlit==1.44.1
+streamlit==1.54.0
 openai
 Requests
 firecrawl-py
